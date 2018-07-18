@@ -2,6 +2,7 @@ package mundopc.domain;
 
 public class Computadora {
     private int idComputadora;
+    private String codigo_computadora;
     private Teclado teclado;
     private Bocina bocina;
     private Raton raton;
@@ -13,6 +14,7 @@ public class Computadora {
     public Computadora(){}
     public Computadora(int idComputadora){
         this.idComputadora = idComputadora;
+        this.codigo_computadora = "CP-" + (int) ((Math.random() * 99999) + 9999);
     }    
     public Computadora(int idComputadora, Teclado teclado){
         this(idComputadora);
@@ -35,6 +37,19 @@ public class Computadora {
         precioTotal = calcularPrecioTotal(teclado,bocina,raton,monitor);
     }
     
+    public Computadora(
+            int idComputadora,
+            String codigo_computadora,
+            Teclado teclado,
+            Bocina bocina,
+            Raton raton,
+            Monitor monitor,
+            float precioTotal){        
+        this(idComputadora, teclado, bocina, raton,monitor);
+        this.codigo_computadora = codigo_computadora;
+        this.precioTotal = precioTotal;
+    }
+    
     //end constructors
     
     //Methods Getter
@@ -43,6 +58,7 @@ public class Computadora {
     public Bocina getBocina() {return bocina;}
     public Raton getRaton() {return raton;}
     public Monitor getMonitor() {return monitor;}
+    public String getCodigo_computadora() {return codigo_computadora;}    
     public float getPrecioTotal() {return precioTotal;}
     //end Getter
 
