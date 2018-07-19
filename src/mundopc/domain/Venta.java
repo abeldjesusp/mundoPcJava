@@ -32,7 +32,7 @@ public class Venta {
 
     public String getCodigo_venta() {return codigo_venta;}    
     public Computadora getComputadora() {return computadora;}
-    public Date getFecha() {return fecha;}
+    public long getFecha() {return fecha.getTime();}
     public float getTotalDeVenta(){return totalDeVenta;}
 
     public void setIdVenta(int idVenta) {this.idVenta = idVenta;}
@@ -42,7 +42,7 @@ public class Venta {
     public String toString() {
         return "Venta\n" 
                 + "ID : " + idVenta 
-                + "Computadora : " + computadora 
-                + "\nFecha=" + fecha + "\n";
+                + "\nComputadora : " + computadora.getCodigo_computadora()
+                + "\nFecha : " + fecha + "\n";
     }   
 }

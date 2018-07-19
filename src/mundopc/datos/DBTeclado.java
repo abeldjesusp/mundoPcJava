@@ -14,7 +14,7 @@ public class DBTeclado implements iDataBase{
     private final String SQL_DELETE = 
             "DELETE FROM Teclados WHERE id_teclado=?";
     private final String SQL_SELECT = 
-            "SELECT * FROM Teclados OREDER BY id_teclado";
+            "SELECT * FROM Teclados ORDER BY id_teclado";
    
     public DBTeclado(){}
   
@@ -59,7 +59,8 @@ public class DBTeclado implements iDataBase{
             int index = 1;
             stmt.setString(index++, teclado.getMarca());
             stmt.setString(index++, teclado.getTipoEntrada());
-            stmt.setFloat(index, teclado.getPrecio());            
+            stmt.setFloat(index++, teclado.getPrecio());
+            stmt.setInt(index, teclado.getIdTeclado());
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizados : " + rows);
             

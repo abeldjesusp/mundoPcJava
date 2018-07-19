@@ -81,7 +81,8 @@ public class DBComputadora implements iDataBase{
             stmt.setInt(index++, computadora.getBocina().getIdBocina());
             stmt.setInt(index++, computadora.getRaton().getIdRaton());
             stmt.setInt(index++, computadora.getMonitor().getIdMonitor());
-            stmt.setFloat(index++, computadora.getPrecioTotal());
+            stmt.setFloat(index++, computadora.getPrecioTotal());            
+            stmt.setInt(index, computadora.getIdComputadora());
             
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizados : " + rows);

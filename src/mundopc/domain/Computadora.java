@@ -92,10 +92,11 @@ public class Computadora {
     public String toString() {
         return "Computadora\n" 
                 + "ID : " + idComputadora 
-                + "\nTeclado : " + teclado 
-                + "\nBocina : " + bocina 
-                + "\nRaton : " + raton 
-                + "\nMonitor : " + monitor 
-                + "\nPrecio : " + precioTotal + "\n";
+                + "\nCodigo : " + codigo_computadora
+                + "\nTeclado : " + teclado.getMarca()
+                + "\nBocina : " + bocina.getMarca()
+                + "\nRaton : " + raton.getMarca()
+                + "\nMonitor : " + monitor.getMarca()
+                + "\nPrecio : " + precioTotal + "\n\n";
     } 
 }

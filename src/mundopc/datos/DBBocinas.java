@@ -14,7 +14,7 @@ public class DBBocinas implements iDataBase{
     private final String SQL_DELETE = 
             "DELETE FROM Bocinas WHERE id_bocina=?";
     private final String SQL_SELECT = 
-            "SELECT * FROM Bocinas OREDER BY id_bocina";
+            "SELECT * FROM Bocinas ORDER BY id_bocina";
    
     public DBBocinas(){}
   
@@ -59,7 +59,8 @@ public class DBBocinas implements iDataBase{
             int index = 1;
             stmt.setString(index++, bocina.getMarca());
             stmt.setString(index++, bocina.getTipoSalida());
-            stmt.setFloat(index, bocina.getPrecio());            
+            stmt.setFloat(index++, bocina.getPrecio());
+            stmt.setInt(index++, bocina.getIdBocina()); 
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizados : " + rows);
             

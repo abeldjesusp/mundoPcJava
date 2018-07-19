@@ -14,7 +14,7 @@ public class DBMonitor implements iDataBase{
     private final String SQL_DELETE = 
             "DELETE FROM Monitores WHERE id_monitor=?";
     private final String SQL_SELECT = 
-            "SELECT * FROM Monitores OREDER BY id_monitor";
+            "SELECT * FROM Monitores ORDER BY id_monitor";
    
     public DBMonitor(){}
   
@@ -61,7 +61,8 @@ public class DBMonitor implements iDataBase{
             stmt.setString(index++, monitor.getMarca());
             stmt.setString(index++, monitor.getTipoSalida());
             stmt.setFloat(index++, monitor.getTamano());
-            stmt.setFloat(index, monitor.getPrecio());            
+            stmt.setFloat(index++, monitor.getPrecio());
+            stmt.setInt(index, monitor.getIdMonitor());
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizados : " + rows);
             

@@ -14,7 +14,7 @@ public class DBRaton implements iDataBase{
     private final String SQL_DELETE = 
             "DELETE FROM Ratones WHERE id_raton=?";
     private final String SQL_SELECT = 
-            "SELECT * FROM Ratones OREDER BY id_raton";
+            "SELECT * FROM Ratones ORDER BY id_raton";
    
     public DBRaton(){}
   
@@ -59,7 +59,8 @@ public class DBRaton implements iDataBase{
             int index = 1;
             stmt.setString(index++, raton.getMarca());
             stmt.setString(index++, raton.getTipoEntrada());
-            stmt.setFloat(index, raton.getPrecio());            
+            stmt.setFloat(index++, raton.getPrecio()); 
+            stmt.setInt(index, raton.getIdRaton()); 
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizados : " + rows);
             

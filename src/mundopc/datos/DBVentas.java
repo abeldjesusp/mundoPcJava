@@ -60,7 +60,7 @@ public class DBVentas implements iDataBase{
             stmt.setString(index++, venta.getCodigo_venta());
             stmt.setInt(index++, venta.getComputadora().getIdComputadora());
             stmt.setFloat(index++, venta.getTotalDeVenta());
-            stmt.setDate(index++, (java.sql.Date)venta.getFecha());            
+            stmt.setTimestamp(index++, new java.sql.Timestamp(venta.getFecha()));            
             
             rows = stmt.executeUpdate();
             System.out.println("Registros afectados : " + rows);
@@ -85,6 +85,7 @@ public class DBVentas implements iDataBase{
             int index = 1;            
             stmt.setInt(index++, venta.getComputadora().getIdComputadora());
             stmt.setFloat(index++, venta.getTotalDeVenta());
+            stmt.setInt(index, venta.getIdVenta());
             rows = stmt.executeUpdate();
             System.out.println("Registros actualizados : " + rows);
             
